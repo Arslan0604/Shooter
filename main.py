@@ -7,7 +7,7 @@ pygame.display.set_mode((800, 600))
 
 pygame.display.set_caption("My Pygame")
 
-
+# you have to start again
 
 
 
