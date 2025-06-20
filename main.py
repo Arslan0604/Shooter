@@ -1,8 +1,6 @@
 import pygame
 import sys
-from random import randint
 
-clock = pygame.time.Clock()
 
 
 pygame.init()
@@ -18,10 +16,12 @@ while True:
         if event.type == pygame.QUIT:
             sys.exit()
 
-    screen.fill((randint(0, 255), randint(0, 255), randint(0, 255)))
+    screen.fill((255, 255, 255))
+    pygame.draw.rect(screen, (0,255,0), (0, 0, 100, 200))
+
     pygame.display.update()
 
-    clock.tick(1)
+
 
 
 
