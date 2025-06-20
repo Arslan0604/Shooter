@@ -26,9 +26,9 @@ while True:
         if event.type == pygame.QUIT:
             sys.exit()
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_UP and rect_y >= STEP:
                 rect_y -= rect_y - STEP
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN and rect_y <= screen_height - STEP:
                 rect_y += rect_y + STEP
             if event.key == pygame.K_LEFT:
                 rect_x -= STEP
