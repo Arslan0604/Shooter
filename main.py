@@ -13,6 +13,7 @@ pygame.display.set_caption("Awesome Shooter Game")
 fighter_image = pygame.image.load()
 
 # Arslan you have to dome smarter:
+# Now start make images:
 
 
 
