@@ -10,7 +10,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 
 pygame.display.set_caption("Awesome Shooter Game")
 
-fighter_image = pygame.image.load('images_game/starship.png')
+fighter_image = pygame.image.load('images_game/fighter.png')
 
 fighter_width, fighter_height = fighter_image.get_size()
 
@@ -25,5 +25,5 @@ while True:
     screen.fill(screen_fill_color)
     screen.blit(fighter_image, (fighter_x, fighter_y))
 
-
+    pygame.display.update()
 
