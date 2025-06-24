@@ -85,7 +85,7 @@ while game_is_running:
 
     if alien_y + alien_height > fighter_y:
         game_is_running = False
-
+# finishing game
 game_over_text = game_font.render("Game Over", True, 'white')
 game_over_rectangle = game_over_text.get_rect()
 game_over_rectangle.center = (screen_width / 2, screen_height / 2)
