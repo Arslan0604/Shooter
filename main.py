@@ -3,7 +3,7 @@ import sys
 from random import randint
 
 
-
+# start my game example
 pygame.init()
 
 game_font = pygame.font.Font(None, 30)
