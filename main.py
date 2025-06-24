@@ -34,6 +34,7 @@ while True:
 
             if event.key == pygame.K_RIGHT:
                 fighter_is_moving_right = True
+
             if event.key == pygame.K_SPACE:
                 rocket_was_fired = True
                 rocket_x = fighter_x + fighter_width / 2 - rocket_width / 2
@@ -49,6 +50,8 @@ while True:
         fighter_x -= FIGHTER_STEP
     if fighter_is_moving_right and fighter_x <= screen_width - fighter_width - FIGHTER_STEP:
         fighter_x += FIGHTER_STEP
+
+
 
     if rocket_was_fired and rocket_y + rocket_height < 0:
         rocket_was_fired = False
