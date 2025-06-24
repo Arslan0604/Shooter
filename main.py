@@ -20,6 +20,7 @@ fighter_is_moving_left, fighter_is_moving_right = False, False
 
 rocket_image = pygame.image.load('image/rocket.png')
 rocket_width, rocket_height = rocket_image.get_size()
+rocket_x, rocket_y = fighter_x + fighter_width / 2 - rocket_width / 2, fighter_y - rocket_height
 
 
 while True:
