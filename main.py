@@ -63,7 +63,7 @@ while game_is_running:
         fighter_x -= FIGHTER_STEP
     if fighter_is_moving_right and fighter_x <= screen_width - fighter_width - FIGHTER_STEP:
         fighter_x += FIGHTER_STEP
-
+# alien goes down
     alien_y += ALIEN_STEP
 
 
