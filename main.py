@@ -14,7 +14,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 
 pygame.display.set_caption("Awesome Shooter Game")
 
-FIGHTER_STEP = 3 # step of moving of ship #
+FIGHTER_STEP = 0.5 # step of moving of ship #
 # function of moving of this ship #
 fighter_image = pygame.image.load('images_game/fighter.png')
 fighter_width, fighter_height = fighter_image.get_size()
@@ -22,20 +22,22 @@ fighter_x, fighter_y = screen_width / 2 - fighter_width / 2, screen_height - fig
 fighter_is_moving_left, fighter_is_moving_right = False, False
 
 # rocket load and moving process
-ROCKET_STEP = 3
+ROCKET_STEP = 0.5
 rocket_image = pygame.image.load('images_game/racket.png')
 rocket_width, rocket_height = rocket_image.get_size()
 rocket_x, rocket_y = 0, 0
 rocket_was_fired = False
 
 # enemy creation alien
-ALIEN_STEP = 1.5
+ALIEN_STEP = 0.01
 alien_speed = ALIEN_STEP
 alien_image = pygame.image.load('images_game/alien.png')
 alien_width, alien_height = alien_image.get_size()
 alien_x, alien_y = randint(0, screen_width - alien_width), 0
 
 game_is_running = True
+
+game_score = 0
 
 while game_is_running:
     for event in pygame.event.get():
@@ -83,6 +85,9 @@ while game_is_running:
     if rocket_was_fired:
         screen.blit(rocket_image, (rocket_x, rocket_y))
 
+    game_score_text = game_font.render(f"Your Score is: {game_score}", True, "white")
+    screen.blit(game_score_text, (20, 20))
+
     pygame.display.update()
 
     if alien_y + alien_height > fighter_y:
@@ -94,6 +99,7 @@ while game_is_running:
         rocket_was_fired = False
         alien_x, alien_y = randint(0, screen_width - alien_width), 0
         alien_speed += ALIEN_STEP / 2
+        game_score += 1
 
 # finishing game
 game_over_text = game_font.render("Game Over", True, 'white')
