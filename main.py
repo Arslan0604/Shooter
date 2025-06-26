@@ -22,7 +22,7 @@ fighter_x, fighter_y = screen_width / 2 - fighter_width / 2, screen_height - fig
 fighter_is_moving_left, fighter_is_moving_right = False, False
 
 # rocket load and moving process
-ROCKET_STEP = 2
+ROCKET_STEP = 3
 rocket_image = pygame.image.load('images_game/racket.png')
 rocket_width, rocket_height = rocket_image.get_size()
 rocket_x, rocket_y = 0, 0
@@ -30,6 +30,7 @@ rocket_was_fired = False
 
 # enemy creation alien
 ALIEN_STEP = 1.5
+alien_speed = ALIEN_STEP
 alien_image = pygame.image.load('images_game/alien.png')
 alien_width, alien_height = alien_image.get_size()
 alien_x, alien_y = randint(0, screen_width - alien_width), 0
@@ -64,7 +65,8 @@ while game_is_running:
     if fighter_is_moving_right and fighter_x <= screen_width - fighter_width - FIGHTER_STEP:
         fighter_x += FIGHTER_STEP
 # alien goes down
-    alien_y += ALIEN_STEP
+
+    alien_y += alien_speed
 
 
     if rocket_was_fired and rocket_y + rocket_height < 0:
@@ -91,6 +93,8 @@ while game_is_running:
             rocket_y < alien_y + alien_height and rocket_y + rocket_height > alien_y:
         rocket_was_fired = False
         alien_x, alien_y = randint(0, screen_width - alien_width), 0
+        alien_speed += ALIEN_STEP / 2
+
 # finishing game
 game_over_text = game_font.render("Game Over", True, 'white')
 game_over_rectangle = game_over_text.get_rect()
