@@ -85,9 +85,12 @@ while game_is_running:
 
     if alien_y + alien_height > fighter_y:
         game_is_running = False
-
-    if rocket_was_fired and alien_x < rocket_x < alien_x + alien_width - rocket_width and alien_y < rocket_y < alien_y + alien_height - rocket_height:
-
+# logic of game rocket and alien
+    if (rocket_was_fired and
+            alien_x < rocket_x < alien_x + alien_width - rocket_width and
+            alien_y < rocket_y < alien_y + alien_height - rocket_height):
+        rocket_was_fired = False
+        alien_x, alien_y = randint(0, screen_width - alien_width), 0
 # finishing game
 game_over_text = game_font.render("Game Over", True, 'white')
 game_over_rectangle = game_over_text.get_rect()
