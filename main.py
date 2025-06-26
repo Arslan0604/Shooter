@@ -14,7 +14,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 
 pygame.display.set_caption("Awesome Shooter Game")
 
-FIGHTER_STEP = 0.1 # step of moving of ship #
+FIGHTER_STEP = 3 # step of moving of ship #
 # function of moving of this ship #
 fighter_image = pygame.image.load('images_game/fighter.png')
 fighter_width, fighter_height = fighter_image.get_size()
@@ -22,14 +22,14 @@ fighter_x, fighter_y = screen_width / 2 - fighter_width / 2, screen_height - fig
 fighter_is_moving_left, fighter_is_moving_right = False, False
 
 # rocket load and moving process
-ROCKET_STEP = 0.3
+ROCKET_STEP = 2
 rocket_image = pygame.image.load('images_game/racket.png')
 rocket_width, rocket_height = rocket_image.get_size()
 rocket_x, rocket_y = 0, 0
 rocket_was_fired = False
 
 # enemy creation alien
-ALIEN_STEP = 0.08
+ALIEN_STEP = 1.5
 alien_image = pygame.image.load('images_game/alien.png')
 alien_width, alien_height = alien_image.get_size()
 alien_x, alien_y = randint(0, screen_width - alien_width), 0
@@ -86,9 +86,9 @@ while game_is_running:
     if alien_y + alien_height > fighter_y:
         game_is_running = False
 # logic of game rocket and alien
-    if (rocket_was_fired and
-            alien_x < rocket_x < alien_x + alien_width - rocket_width and
-            alien_y < rocket_y < alien_y + alien_height - rocket_height):
+    if rocket_was_fired and \
+            rocket_x < alien_x + alien_width and rocket_x + rocket_width > alien_x and \
+            rocket_y < alien_y + alien_height and rocket_y + rocket_height > alien_y:
         rocket_was_fired = False
         alien_x, alien_y = randint(0, screen_width - alien_width), 0
 # finishing game
